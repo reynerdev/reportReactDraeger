@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FormDevices from './components/FormDevices';
-
+import App from './components/App';
+import './index.css';
 
 ReactDOM.render(
-    <FormDevices />
-    
-  ,document.getElementById('root')
-);
+  <App />,
 
+  document.getElementById('root')
+);
