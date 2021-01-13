@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DevicesContext from '../context/DevicesContext';
 import EnterDevice from './EnterDevice';
-import ListDevices from './ListDevices';
+
 import ReportDetail from './ReportDetail';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
           </button>
           <div className="enterDeviceBox flex p-8">
             <EnterDevice setEquipos={setEquipos} equipos={equipos} />
-            <ListDevices equipos={equipos} />
+            {/* <ListDevices equipos={equipos} /> */}
           </div>
         </div>
       </div>
