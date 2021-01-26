@@ -19,7 +19,7 @@ const Device = ({
     equipos.splice(index, 1);
 
     console.log(equipos, 'newArray');
-    setEquipos([...equipos]);
+    setDevices([...equipos]);
   };
 
   const openTextEditor = () => {
