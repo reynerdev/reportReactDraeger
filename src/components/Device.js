@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import logo from '../img/close.svg';
 const Device = ({
+  devices,
+  setDevices,
   equipo,
   index,
   setEquipos,
@@ -38,11 +40,11 @@ const Device = ({
       </div>
 
       <div className="leftPart w-40 flex flex-col p-5">
-        <div>{equipo.nequipo}</div>
+        <div>{devices.nequipo}</div>
       </div>
       <div className="middlePart w-40 flex flex-col  p-5">
-        <div>{equipo.nparte}</div>
-        <div>{equipo.nserie}</div>
+        <div>{devices.nparte}</div>
+        <div>{devices.nserie}</div>
       </div>
       <div className="rightPart flex p-5 justify-start">
         <div>

@@ -3,7 +3,7 @@ import RichTextEditor from 'react-rte';
 
 const BodyTextEditor = ({ setEquipos, equipos, currentIndex }) => {
   useEffect(() => {
-    console.log('BodyTextEditor');
+    console.log('BodyTextEditor', currentIndex);
   });
 
   //   const [value, setValue] = useState(RichTextEditor.createEmptyValue());

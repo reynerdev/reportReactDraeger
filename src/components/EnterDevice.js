@@ -9,11 +9,9 @@ const EnterDevice = ({ setEquipos, equipos }) => {
   const [nombreEquipo, setNombreEquipo] = useState('');
   const [devices, setDevices] = useState([]);
   const [openTextEditor, setOpenTextEditor] = useState(false);
+
   // State para el estado que nos indica cual es el indice que se esta editando en el textbox
   const [currentIndex, setCurrentIndex] = useState('');
-  // useEffect(() =>
-  //   console.log(equipos, 'EnterDevice');
-  // }, [equipos]);
 
   const addDevice = () => {
     if (nombreEquipo && numeroParte && numeroSerie) {
@@ -23,6 +21,8 @@ const EnterDevice = ({ setEquipos, equipos }) => {
         nserie: numeroSerie,
         textArea: '',
       };
+
+      const equipos = [];
 
       console.log('BeforeSetDevices');
       equipos.push(equipoAdded);
@@ -75,6 +75,8 @@ const EnterDevice = ({ setEquipos, equipos }) => {
       </div>
 
       <ListDevices
+        devices={devices}
+        setDevices={setDevices}
         equipos={equipos}
         setEquipos={setEquipos}
         setOpenTextEditor={setOpenTextEditor}
