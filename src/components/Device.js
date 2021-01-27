@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ReactDOM  from 'react-dom'
 import logo from '../img/close.svg';
 const Device = ({
   equipo,
@@ -25,6 +26,7 @@ const Device = ({
     setOpenTextEditor((preval) => {
       return !preval;
     });
+
     setCurrentIndex(index);
   };
 

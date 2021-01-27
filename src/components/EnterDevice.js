@@ -21,7 +21,7 @@ const EnterDevice = ({ setEquipos, equipos }) => {
         nequipo: nombreEquipo,
         nparte: numeroParte,
         nserie: numeroSerie,
-        textArea: '',
+        textArea: ' ',
       };
 
       console.log('BeforeSetDevices');
@@ -83,6 +83,7 @@ const EnterDevice = ({ setEquipos, equipos }) => {
 
       {openTextEditor && (
         <BodyTextEditor
+          id='textEditor'
           setEquipos={setEquipos}
           equipos={equipos}
           currentIndex={currentIndex}
