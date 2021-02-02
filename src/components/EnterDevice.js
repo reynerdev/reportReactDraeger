@@ -1,19 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import BodyTextEditor from './BodyTextEditor';
 import ListDevices from './ListDevices';
-
+import RichTextEditor from 'react-rte';
+// recordar que el elemento se renderiza al cambiar el estado 
 const EnterDevice = ({ setEquipos, equipos }) => {
   const [numeroParte, setNumeroParte] = useState('');
   const [values, setValues] = useState('');
   const [numeroSerie, setNumeroSerie] = useState('');
   const [nombreEquipo, setNombreEquipo] = useState('');
-  const [devices, setDevices] = useState([]);
+  // const [devices, setDevices] = useState([]);
   const [openTextEditor, setOpenTextEditor] = useState(false);
   // State para el estado que nos indica cual es el indice que se esta editando en el textbox
-  const [currentIndex, setCurrentIndex] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
   // useEffect(() =>
   //   console.log(equipos, 'EnterDevice');
   // }, [equipos]);
+
+  const [value, setValue] = useState(
+    RichTextEditor.createValueFromString(equipos[currentIndex].textArea, 'html')
+  );
+
+  const onChange = (value) => { 
+    console.log(value,'Onchange BodyTextEditor')
+    setValue(value);
+    equipos[currentIndex].textArea = value.toString('html');
+    setEquipos([...equipos]);
+    // if (setEquipos) {
+    //   equipos[currentIndex].textArea = value.toString('html');
+    //   setEquipos([...equipos]);
+    // }
+  };
+
+useEffect (()=>{
+console.log(equipos,'EnterDevice',openTextEditor)
+})
 
   const addDevice = () => {
     if (nombreEquipo && numeroParte && numeroSerie) {
@@ -24,11 +44,13 @@ const EnterDevice = ({ setEquipos, equipos }) => {
         textArea: ' ',
       };
 
-      console.log('BeforeSetDevices');
-      equipos.push(equipoAdded);
+      let newEquipos = []
+
+      // console.log('BeforeSetDevices');
+      newEquipos.push(equipoAdded);
       // setEquipos(equipos);
-      setDevices([...equipos, equipoAdded]);
-      console.log(devices, 'printequipos');
+      setEquipos([...equipos, equipoAdded]);
+      // console.log(devices, 'printequipos');
     } else {
       alert('No puede quedar en blanco');
     }
@@ -81,14 +103,22 @@ const EnterDevice = ({ setEquipos, equipos }) => {
         setCurrentIndex={setCurrentIndex}
       />
 
-      {openTextEditor && (
+      {/* {openTextEditor && (
         <BodyTextEditor
           id='textEditor'
           setEquipos={setEquipos}
           equipos={equipos}
           currentIndex={currentIndex}
         />
+      )} */}
+
+{openTextEditor && (
+  <RichTextEditor value={value} onChange={onChange} />
       )}
+
+      <button onClick={()=>setOpenTextEditor(false)}>
+        Agregar Texto
+      </button>
     </div>
   );
 };

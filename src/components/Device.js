@@ -9,16 +9,22 @@ const Device = ({
   setOpenTextEditor,
   setCurrentIndex,
 }) => {
+
+
+
   useEffect(() => {
     console.log(equipo, 'Device', index);
   });
 
   const del = () => {
-    console.log(equipos, 'vamos a ver los equipos');
-    equipos.splice(index, 1);
+    // console.log(equipos, 'vamos a ver los equipos');
+    // const eq = equipos.splice(index,1)
+    setOpenTextEditor(false)
+    const eq = equipos
+    eq.splice(index,1)
 
-    console.log(equipos, 'newArray');
-    setEquipos([...equipos]);
+    // console.log(equipos, 'newArray');
+    setEquipos([...eq]);
   };
 
   const openTextEditor = () => {
@@ -26,6 +32,7 @@ const Device = ({
     setOpenTextEditor((preval) => {
       return !preval;
     });
+    console.log('BTW')
 
     setCurrentIndex(index);
   };

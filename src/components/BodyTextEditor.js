@@ -8,18 +8,25 @@ const BodyTextEditor = ({ setEquipos, equipos, currentIndex }) => {
     RichTextEditor.createValueFromString(equipos[currentIndex].textArea, 'html')
   );
 
-  useEffect(() => {
-    setValue(RichTextEditor.createEmptyValue())
+  useEffect(()=>{
+    console.log('Body Text Editor',currentIndex)
+  })
+
+  // useEffect(() => {
+  //   setValue(RichTextEditor.createEmptyValue())
     
-    console.log('BodyTextEditor');
+  //   // console.log('BodyTextEditor');
     
-  },[]);
-  const onChange = (value) => {
+  // });
+  const onChange = (value) => { 
+    console.log(value,'Onchange BodyTextEditor')
     setValue(value);
-    if (setEquipos) {
-      equipos[currentIndex].textArea = value.toString('html');
-      setEquipos([...equipos]);
-    }
+    equipos[currentIndex].textArea = value.toString('html');
+    setEquipos([...equipos]);
+    // if (setEquipos) {
+    //   equipos[currentIndex].textArea = value.toString('html');
+    //   setEquipos([...equipos]);
+    // }
   };
 
   return <RichTextEditor value={value} onChange={onChange} />;
