@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DevicesContext from '../context/DevicesContext';
 import EnterDevice from './EnterDevice';
-
+import { Preview, print } from 'react-html2pdf';
 import ReportDetail from './ReportDetail';
 
 function App() {
@@ -32,6 +32,8 @@ function App() {
             <EnterDevice setEquipos={setEquipos} equipos={equipos} />
             {/* <ListDevices equipos={equipos} /> */}
           </div>
+
+          <div></div>
         </div>
       </div>
     </div>

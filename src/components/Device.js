@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import ReactDOM  from 'react-dom'
+import ReactDOM from 'react-dom';
+import RichTextEditor from 'react-rte';
 import logo from '../img/close.svg';
+
 const Device = ({
   equipo,
   index,
@@ -8,10 +10,8 @@ const Device = ({
   equipos,
   setOpenTextEditor,
   setCurrentIndex,
+  setValue,
 }) => {
-
-
-
   useEffect(() => {
     console.log(equipo, 'Device', index);
   });
@@ -19,22 +19,25 @@ const Device = ({
   const del = () => {
     // console.log(equipos, 'vamos a ver los equipos');
     // const eq = equipos.splice(index,1)
-    setOpenTextEditor(false)
-    const eq = equipos
-    eq.splice(index,1)
+    setOpenTextEditor(false);
+    const eq = equipos;
+    eq.splice(index, 1);
 
     // console.log(equipos, 'newArray');
     setEquipos([...eq]);
   };
 
   const openTextEditor = () => {
+    setValue(
+      RichTextEditor.createValueFromString(equipos[index].textArea, 'html')
+    );
+    setCurrentIndex(index);
     setOpenTextEditor(false);
     setOpenTextEditor((preval) => {
       return !preval;
     });
-    console.log('BTW')
 
-    setCurrentIndex(index);
+    console.log('BTW');
   };
 
   return (

@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import RichTextEditor from 'react-rte';
 
-const BodyTextEditor = ({ setEquipos, equipos, currentIndex }) => {
-
+const BodyTextEditor = ({
+  setEquipos,
+  equipos,
+  currentIndex,
+  openTextEditor,
+  value,
+  setValue,
+}) => {
   //   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
-  const [value, setValue] = useState(
-    RichTextEditor.createValueFromString(equipos[currentIndex].textArea, 'html')
-  );
+  // const [value, setValue] = useState(
+  //   RichTextEditor.createValueFromString(equipos[currentIndex].textArea, 'html')
+  // );
 
-  useEffect(()=>{
-    console.log('Body Text Editor',currentIndex)
-  })
+  useEffect(() => {
+    console.log('Body Text Editor', currentIndex);
+  });
 
   // useEffect(() => {
   //   setValue(RichTextEditor.createEmptyValue())
-    
+
   //   // console.log('BodyTextEditor');
-    
+
   // });
-  const onChange = (value) => { 
-    console.log(value,'Onchange BodyTextEditor')
+  const onChange = (value) => {
+    console.log(value, 'Onchange BodyTextEditor');
     setValue(value);
     equipos[currentIndex].textArea = value.toString('html');
     setEquipos([...equipos]);

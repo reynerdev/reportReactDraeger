@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import BodyTextEditor from './BodyTextEditor';
 import ListDevices from './ListDevices';
 import RichTextEditor from 'react-rte';
-// recordar que el elemento se renderiza al cambiar el estado 
+// recordar que el elemento se renderiza al cambiar el estado
 const EnterDevice = ({ setEquipos, equipos }) => {
   const [numeroParte, setNumeroParte] = useState('');
-  const [values, setValues] = useState('');
+
   const [numeroSerie, setNumeroSerie] = useState('');
   const [nombreEquipo, setNombreEquipo] = useState('');
   // const [devices, setDevices] = useState([]);
@@ -15,25 +15,11 @@ const EnterDevice = ({ setEquipos, equipos }) => {
   // useEffect(() =>
   //   console.log(equipos, 'EnterDevice');
   // }, [equipos]);
+  const [value, setValue] = useState('');
 
-  const [value, setValue] = useState(
-    RichTextEditor.createValueFromString(equipos[currentIndex].textArea, 'html')
-  );
-
-  const onChange = (value) => { 
-    console.log(value,'Onchange BodyTextEditor')
-    setValue(value);
-    equipos[currentIndex].textArea = value.toString('html');
-    setEquipos([...equipos]);
-    // if (setEquipos) {
-    //   equipos[currentIndex].textArea = value.toString('html');
-    //   setEquipos([...equipos]);
-    // }
-  };
-
-useEffect (()=>{
-console.log(equipos,'EnterDevice',openTextEditor)
-})
+  useEffect(() => {
+    console.log(equipos, 'EnterDevice', openTextEditor);
+  });
 
   const addDevice = () => {
     if (nombreEquipo && numeroParte && numeroSerie) {
@@ -44,7 +30,7 @@ console.log(equipos,'EnterDevice',openTextEditor)
         textArea: ' ',
       };
 
-      let newEquipos = []
+      let newEquipos = [];
 
       // console.log('BeforeSetDevices');
       newEquipos.push(equipoAdded);
@@ -101,24 +87,30 @@ console.log(equipos,'EnterDevice',openTextEditor)
         setEquipos={setEquipos}
         setOpenTextEditor={setOpenTextEditor}
         setCurrentIndex={setCurrentIndex}
+        setValue={setValue}
       />
 
-      {/* {openTextEditor && (
+      {/* <div className={openTextEditor && 'hidden'}>
         <BodyTextEditor
-          id='textEditor'
+          id="textEditor"
           setEquipos={setEquipos}
           equipos={equipos}
           currentIndex={currentIndex}
         />
-      )} */}
-
-{openTextEditor && (
-  <RichTextEditor value={value} onChange={onChange} />
+      </div> */}
+      {openTextEditor && (
+        <BodyTextEditor
+          openTextEditor="openTextEditor"
+          id="textEditor"
+          setEquipos={setEquipos}
+          equipos={equipos}
+          currentIndex={currentIndex}
+          value={value}
+          setValue={setValue}
+        />
       )}
 
-      <button onClick={()=>setOpenTextEditor(false)}>
-        Agregar Texto
-      </button>
+      <button onClick={() => setOpenTextEditor(false)}>Agregar Texto</button>
     </div>
   );
 };
