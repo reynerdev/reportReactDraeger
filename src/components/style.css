@@ -1,0 +1,150 @@
+/* * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+} */
+
+
+/* body {
+    width: 790px;
+    margin: 0 auto;
+    padding: 30px;
+} */
+
+.row {
+    /* border: 1px solid; */
+    height: 100px;
+    display: flex;
+    margin-top: 10px;
+    align-items: flex-start;
+    /* align-items: center; */
+    flex-direction: row;
+
+}
+
+.firstRow .right {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.left {
+
+    flex: 1.5;
+    /* border: 1px solid #111111; */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.right {
+    flex: 1;
+    /* border: 1px solid #111111; */
+    display: flex;
+    position: relative;
+
+}
+
+.left p {
+    width: 250px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.right p {
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.title {
+
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.secondRow {
+
+    height: 70px;
+
+}
+
+.uppertext {
+    position: absolute;
+    top: -18px;
+    font-size: 12px;
+    font-weight: 700;
+
+}
+
+
+.mainContent {
+    display: flex;
+    position: relative;
+    /* border: 1px solid black; */
+    /* height: 400px; */
+}
+
+.pages {
+    position: absolute;
+    top: -25px;
+    font-size: 14px;
+}
+
+.column {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    position: relative;
+    margin-left: 8px;
+}
+
+.column .columnTitle {
+    position: absolute;
+    font-size: 13px;
+}
+
+.itemColumn {
+    width: 80px;
+}
+
+.quantityColumn {
+    width: 80px;
+}
+
+.descriptionColumn {
+    flex: 1;
+}
+
+.items {
+
+    margin-top: 40px;
+    /* padding-right: 40px; */
+    /* display: flex; */
+    position: relative;
+    /* position: absolute; */
+}
+
+.itemsNumber {
+    /* margin-left: 5px; */
+    position: absolute;
+    left: -160px;
+    /* width: 200px; */
+    /* border: 1px solid black; */
+
+}
+
+.content {
+    /* padding: 0 40px; */
+    padding-left: 40px;
+    /* border: 1px solid black; */
+    width: 520px;
+    /* padding: 80px; */
+    /* flex: 1; */
+    word-wrap: break-word;
+}
