@@ -2,15 +2,16 @@ import React from 'react';
 
 import './style.css';
 import logoDraeger from '../img/draegerLogo.png';
+import Device from './Device';
+import { DescriptionItem } from './DescriptionItem';
+import ReactHtmlParser from 'react-html-parser'
 
-const Pdf = ({
-  nCliente,
-  nReporte,
-  razonSocial,
-  ingeniero,
-  fecha,
-  personaContacto,
+const Pdf = ({equipos,
+reporteDetail
 }) => {
+
+
+  console.log('PDF')
   return (
     <div id="element-to-print" style={{ width: '790px' }}>
       <div className="row firstRow">
@@ -22,43 +23,43 @@ const Pdf = ({
       <div className="row secondRow">
         <div className="left nCliente">
           <div className="uppertext">N° Cliente:</div>
-          <p>{nCliente}</p>
+          <p>{reporteDetail.rucCliente}</p>
         </div>
         <div className="right nReporte">
           <div className="uppertext">N° Reporte de servicio:</div>
-          <p>{nReporte}</p>
+          <p>{reporteDetail.numeroReporte}</p>
         </div>
       </div>
       <div className="row thirdRow">
         <div className="left fecha">
           <div className="uppertext">Cliente:</div>
-          <p>{razonSocial}</p>
+          <p>{reporteDetail.nombreCliente}</p>
         </div>
         <div className="right problemaReportado">
           <div className="uppertext">Ingeniero</div>
-          <p>{ingeniero}</p>
+          <p>{reporteDetail.nombreIngeniero}</p>
         </div>
       </div>
       <div className="row thirdRow">
         <div className="left fecha">
           <div className="uppertext">Fecha solicitud/servicio:</div>
-          <p>{fecha}</p>
+          <p>{reporteDetail.fechaServicio}</p>
         </div>
         <div className="right problemaReportado">
           <div className="uppertext">Problema reportado:</div>
-          <p>Result Time Sheet Instructions</p>
+          <p>{reporteDetail.problemaReportado}</p>
         </div>
       </div>
       <div className="row thirdRow">
         <div className="left fecha">
           <div className="uppertext">Persona de Contacto:</div>
-          <p>{personaContacto}</p>
+          <p>{reporteDetail.personaContacto}</p>
         </div>
         <div className="right problemaReportado">
           <div className="uppertext">
             Certificado de pruebas del fabricante:
           </div>
-          <p>Result Time Sheet Instructions</p>
+          <p>{reporteDetail.certificadoPrueba}</p>
         </div>
       </div>
       <div className="mainContent">
@@ -75,9 +76,21 @@ const Pdf = ({
           <div className="columnTitle">Descripcion</div>
 
           <div className="items">
-            <div className="itemsNumber">01</div>
 
-            <div className="content firstContent">r r</div>
+            {equipos.map((equipo,index)=>{
+
+              console.log(equipo,'PDF')
+
+  return  (
+
+                <>
+                <div className="itemsNumber">{index}</div>
+
+                <div className="content firstContent">{ReactHtmlParser(equipo.textArea)}</div>
+                </>
+              )
+            })}
+      
           </div>
         </div>
       </div>

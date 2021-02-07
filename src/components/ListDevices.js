@@ -13,7 +13,7 @@ const ListDevices = ({
   });
 
   return (
-    <div className="">
+    <div className="mr-5">
       {!equipos.length ? (
         <h1 className="p-5">Lista de equipos vacios </h1>
       ) : (

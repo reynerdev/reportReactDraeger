@@ -42,7 +42,7 @@ const Device = ({
 
   return (
     <div
-      className="border-2 cursor-pointer border-neutral-l-3  flex mb-5 "
+      className="border-2 cursor-pointer shadow-lg flex mb-5 "
       onClick={openTextEditor}
     >
       <div className="flex p-5 h-14">

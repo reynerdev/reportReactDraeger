@@ -42,8 +42,8 @@ const EnterDevice = ({ setEquipos, equipos }) => {
     }
   };
   return (
-    <div className="flex">
-      <div className="flex flex-col mr-5">
+    <div className="flex items-start">
+      <div className="flex flex-col mr-5 shadow-lg p-5">
         <div className="flex flex-col mb-8">
           <span className="text-sm text-neutral4 font-bold">
             Modelo de Equipo
@@ -110,7 +110,7 @@ const EnterDevice = ({ setEquipos, equipos }) => {
         />
       )}
 
-      <button onClick={() => setOpenTextEditor(false)}>Agregar Texto</button>
+      {/* <button onClick={() => setOpenTextEditor(false)}>Agregar Texto</button> */}
     </div>
   );
 };

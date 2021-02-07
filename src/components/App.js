@@ -5,9 +5,13 @@ import EnterDevice from './EnterDevice';
 import ReportDetail from './ReportDetail';
 import Pdf from './Pdf';
 import html2pdf from 'html2pdf.js';
+import DetailReportState from './hooks/DetailReportState'
 
 function App() {
   const [equipos, setEquipos] = useState([]);
+
+  const [reporte,setNumeroReporte,setRucCliente,setNombreCliente,setNombreIngeniero,setFechaServicio,setProblemaReportado,setCertificadoPrueba,setPersonaContacto] = DetailReportState()
+
 
   useEffect(() => {
     console.log(equipos, 'App Component');
@@ -35,18 +39,34 @@ function App() {
     html2pdf().set(opt).from(element).save();
   };
   return (
-    <div className="">
+    <div className="pt-10">
       <div
         className="
-    mainContent container mx-auto 2xl border-solid border-4 border-light-blue-500 flex flex-col mt-32 "
+      mainContent
+      container
+      mx-auto 
+      2xl
+      shadow-lg
+      flex 
+      flex-col 
+      "
       >
-        <div className="infoReport ">
+        <div className="infoReport  ">
           <h1>Crear Reporte</h1>
           <button className="w-full border-solid border-4 text-left	p-3">
             Ingrese Datos del Reporte:
           </button>
           <div className="reportBox  w-full">
-            <ReportDetail />
+            <ReportDetail 
+            setNumeroReporte = {setNumeroReporte}
+            setRucCliente={setRucCliente}
+            setNombreCliente={setNombreCliente}
+            setFechaServicio={setFechaServicio}
+            setProblemaReportado={setProblemaReportado}
+            setCertificadoPrueba={setCertificadoPrueba} 
+            setNombreIngeniero = {setNombreIngeniero}
+            setPersonaContacto = {setPersonaContacto}
+            />
           </div>
           <button className="w-full border-solid border-4 text-left	p-3">
             Ingrese los equipos:
@@ -59,12 +79,14 @@ function App() {
           </button>
 
           <div className="enterDeviceBox flex p-8">
-            <EnterDevice setEquipos={setEquipos} equipos={equipos} />
+            <EnterDevice setEquipos={setEquipos} 
+            equipos={equipos}
+             />
             {/* <ListDevices equipos={equipos} /> */}
           </div>
 
           <div className="flex justify-center">
-            <Pdf />
+            <Pdf equipos = {equipos} reporteDetail = {reporte}/>
           </div>
         </div>
       </div>
