@@ -7,6 +7,7 @@ const ListDevices = ({
   setOpenTextEditor,
   setCurrentIndex,
   setValue,
+  currentIndex
 }) => {
   useEffect(() => {
     console.log(equipos, 'ListDevices');
@@ -27,6 +28,7 @@ const ListDevices = ({
             setOpenTextEditor={setOpenTextEditor}
             setCurrentIndex={setCurrentIndex}
             setValue={setValue}
+            currentIndex = {currentIndex}
           />
         ))
       )}

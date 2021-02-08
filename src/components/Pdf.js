@@ -6,16 +6,28 @@ import Device from './Device';
 import { DescriptionItem } from './DescriptionItem';
 import ReactHtmlParser from 'react-html-parser'
 
+
+
+
 const Pdf = ({equipos,
 reporteDetail
 }) => {
+  const returnTitleDevice = (equipo) =>{
 
+    console.log('returnTitleDevice')
+    const titleDevice = `<p><strong>${equipo.nequipo}</strong></p>
+    <p><strong>N° Parte: ${equipo.nparte}</strong></p>
+    <p><strong>N° Serie: ${equipo.nserie}</strong></p>`
+  
+  
+    return titleDevice
+  }
 
   console.log('PDF')
   return (
     <div id="element-to-print" style={{ width: '790px' }}>
       <div className="row firstRow">
-        <div className="left title">Reporte de Servicio Tecnico</div>
+        <div className="left title">Reporte de Servicio Técnico</div>
         <div className="right logo">
           <img src={logoDraeger} alt="DraegerLogo" width="150px" />
         </div>
@@ -86,7 +98,7 @@ reporteDetail
                 <>
                 <div className="itemsNumber">{index}</div>
 
-                <div className="content firstContent">{ReactHtmlParser(equipo.textArea)}</div>
+                <div className="content firstContent">{ReactHtmlParser(returnTitleDevice(equipo) + equipo.textArea)}</div>
                 </>
               )
             })}

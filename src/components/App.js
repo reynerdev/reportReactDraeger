@@ -4,59 +4,46 @@ import EnterDevice from './EnterDevice';
 // import { Preview, print } from 'react-html2pdf';
 import ReportDetail from './ReportDetail';
 import Pdf from './Pdf';
-import html2pdf from 'html2pdf.js';
+import 'animate.css'
+
 import DetailReportState from './hooks/DetailReportState'
+import logo from '../img/draegerLogo.png'
 
 function App() {
   const [equipos, setEquipos] = useState([]);
-
   const [reporte,setNumeroReporte,setRucCliente,setNombreCliente,setNombreIngeniero,setFechaServicio,setProblemaReportado,setCertificadoPrueba,setPersonaContacto] = DetailReportState()
-
+const [isOpenPreview,setIsOpenPreview] = useState(true)
 
   useEffect(() => {
     console.log(equipos, 'App Component');
   });
 
-  const printPdf = () => {
-    let element = document.getElementById('element-to-print');
-    //     let text = document.querySelector('.firstContent').innerText;
-    // console.log(text.length);
-    var opt = {
-      // margin: [50, 50, 50, 50],
-      filename: 'myfile.pdf',
-      html2canvas: { scale: 4 },
-      pagebreak: {
-        mode: 'avoid-all',
-      },
-      jsPDF: {
-        unit: 'px',
-        format: 'a4',
-        orientation: 'p',
-        hotfixes: ['px_scaling'],
-      },
-    };
-
-    html2pdf().set(opt).from(element).save();
-  };
   return (
     <div className="pt-10">
+                <div className= 'flex  px-36'>
+            <img src={logo} width='10%' />
+            <div className='flex-grow flex items-center ml-10 text-4xl font-bold font-mono'>
+              
+            </div>
+          </div>
       <div
         className="
       mainContent
       container
-      mx-auto 
       2xl
-      shadow-lg
-      flex 
-      flex-col 
+      mx-auto
+      shadow-lg 
       "
       >
-        <div className="infoReport  ">
-          <h1>Crear Reporte</h1>
+        <div className="infoReport flex m-5 ">
+
+
+
+          {/* <h1>Crear Reporte</h1>
           <button className="w-full border-solid border-4 text-left	p-3">
             Ingrese Datos del Reporte:
-          </button>
-          <div className="reportBox  w-full">
+          </button> */}
+          <div className="reportBox ">
             <ReportDetail 
             setNumeroReporte = {setNumeroReporte}
             setRucCliente={setRucCliente}
@@ -68,26 +55,30 @@ function App() {
             setPersonaContacto = {setPersonaContacto}
             />
           </div>
-          <button className="w-full border-solid border-4 text-left	p-3">
+          {/* <button className="w-full border-solid border-4 text-left	p-3">
             Ingrese los equipos:
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="w-full border-solid border-4 text-left	p-3"
-            onClick={printPdf}
+            onClick={printPdf}  
           >
             Generar PDF
-          </button>
+          </button> */}
 
           <div className="enterDeviceBox flex p-8">
             <EnterDevice setEquipos={setEquipos} 
             equipos={equipos}
+            setIsOpenPreview={setIsOpenPreview}
              />
             {/* <ListDevices equipos={equipos} /> */}
           </div>
 
-          <div className="flex justify-center">
-            <Pdf equipos = {equipos} reporteDetail = {reporte}/>
+          <div className={`modal ${isOpenPreview && 'modalPdf-open'} justify-center modalPdf `} onClick={()=>setIsOpenPreview(false)}>
+            <Pdf equipos = {equipos} reporteDetail = {reporte} setIsOpenPreview={setIsOpenPreview}/>
           </div>
+
+          
+    
         </div>
       </div>
     </div>
