@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eed4dfaa.chunk.css",
+    "main.js": "/static/js/main.53b0c6b7.chunk.js",
+    "main.js.map": "/static/js/main.53b0c6b7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.35899224.js",
+    "runtime-main.js.map": "/static/js/runtime-main.35899224.js.map",
+    "static/css/2.b81a6ac0.chunk.css": "/static/css/2.b81a6ac0.chunk.css",
+    "static/js/2.c0fea27b.chunk.js": "/static/js/2.c0fea27b.chunk.js",
+    "static/js/2.c0fea27b.chunk.js.map": "/static/js/2.c0fea27b.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.b81a6ac0.chunk.css.map": "/static/css/2.b81a6ac0.chunk.css.map",
+    "static/css/main.eed4dfaa.chunk.css.map": "/static/css/main.eed4dfaa.chunk.css.map",
+    "static/js/2.c0fea27b.chunk.js.LICENSE.txt": "/static/js/2.c0fea27b.chunk.js.LICENSE.txt",
+    "static/media/close.f1b4b43c.svg": "/static/media/close.f1b4b43c.svg",
+    "static/media/draegerLogo.289188ba.png": "/static/media/draegerLogo.289188ba.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35899224.js",
+    "static/css/2.b81a6ac0.chunk.css",
+    "static/js/2.c0fea27b.chunk.js",
+    "static/css/main.eed4dfaa.chunk.css",
+    "static/js/main.53b0c6b7.chunk.js"
+  ]
+}
