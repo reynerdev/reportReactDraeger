@@ -28,6 +28,11 @@ module.exports = {
         'blue-l-2': '#B6E0FE',
         'blue-l-1': '#DCEEFB',
         'pallete-yellow': '#F0B429',
+        blueButton: '#5e5e94',
+      },
+
+      boxShadow: {
+        draeger: '0 1px 3px  rgba(0, 0, 0, 0.12)',
       },
     },
   },

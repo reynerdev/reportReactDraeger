@@ -4,28 +4,25 @@ import './style.css';
 import logoDraeger from '../img/draegerLogo.png';
 import Device from './Device';
 import { DescriptionItem } from './DescriptionItem';
-import ReactHtmlParser from 'react-html-parser'
+import ReactHtmlParser from 'react-html-parser';
 
-
-
-
-const Pdf = ({equipos,
-reporteDetail
-}) => {
-  const returnTitleDevice = (equipo) =>{
-
-    console.log('returnTitleDevice')
-    const titleDevice = `<p><strong>${equipo.nequipo}</strong></p>
+const Pdf = ({ equipos, reporteDetail }) => {
+  const returnTitleDevice = (equipo) => {
+    console.log('returnTitleDevice');
+    const titleDevice = `<p><strong class="titleDevice">${equipo.nequipo}</strong></p>
     <p><strong>N° Parte: ${equipo.nparte}</strong></p>
-    <p><strong>N° Serie: ${equipo.nserie}</strong></p>`
-  
-  
-    return titleDevice
-  }
+    <p class='mb-2'><strong >N° Serie: ${equipo.nserie}</strong></p>`;
 
-  console.log('PDF')
+    return titleDevice;
+  };
+
+  console.log('PDF');
   return (
-    <div id="element-to-print" style={{ width: '790px' }}>
+    <div
+      id="element-to-print"
+      className="my-8 px-10"
+      style={{ width: '790px' }}
+    >
       <div className="row firstRow">
         <div className="left title">Reporte de Servicio Técnico</div>
         <div className="right logo">
@@ -88,25 +85,69 @@ reporteDetail
           <div className="columnTitle">Descripcion</div>
 
           <div className="items">
-
-            {equipos.map((equipo,index)=>{
-
-              console.log(equipo,'PDF')
-
-  return  (
-
+            {equipos.map((equipo, index) => {
+              return (
                 <>
-                <div className="itemsNumber">{index}</div>
+                  <div className="itemsNumber">{index + 1}</div>
 
-                <div className="content firstContent">{ReactHtmlParser(returnTitleDevice(equipo) + equipo.textArea)}</div>
+                  <div className="content firstContent ">
+                    {ReactHtmlParser(
+                      returnTitleDevice(equipo) + equipo.textArea
+                    )}
+                  </div>
                 </>
-              )
+              );
             })}
-      
           </div>
         </div>
       </div>
-      <div className="signaturePart">SIGNATURE</div>
+
+      <div className="signaturePart">
+        <div className="signatureIngeniero">
+          <div className="signatureIngenieroName">
+            Fecha Firma del Ingeniero
+          </div>
+
+          <div className="lineSign">
+            <img
+              className="firmaPicture"
+              src="./firmaReyner.png"
+              alt=""
+              width="190px"
+            />
+            <div className="linea"></div>
+          </div>
+
+          <div className="bottomSignatureIngeniero">
+            <div>Draeger Peru S.A.C.</div>
+            <div>Av. San Borja Sur 573</div>
+            <div>San Borja - Lima Peru</div>
+            <div>www.drager.peru</div>
+          </div>
+        </div>
+
+        <div className="signatureIngeniero">
+          <div className="signatureIngenieroName">Fecha Firma del Cliente</div>
+
+          <div className="lineSign">
+            <img
+              className="firmaPicture"
+              src="./firmaReyner.png"
+              alt=""
+              width="190px"
+            />
+            <div className="linea"></div>
+          </div>
+
+          <div className="bottomSignatureIngeniero">
+            <div>
+              Todos los procedimientos y pruebas de este mantenimiento
+              preventivo/correctivo siguen estrictamente las exigencias del
+              fabricante Dräger y cumplen la norma ISO 13485
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

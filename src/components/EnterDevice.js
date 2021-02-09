@@ -22,7 +22,7 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
     //     let text = document.querySelector('.firstContent').innerText;
     // console.log(text.length);
     var opt = {
-      // margin: [50, 50, 50, 50],
+      margin: [5, 5, 5, 5],
       filename: 'myfile.pdf',
       html2canvas: { scale: 4 },
       pagebreak: {
@@ -101,7 +101,7 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
         <div className="p-3 flex justify-center text-blue-l">
           <button
             className="bg-pallete-yellow rounded-md hover:bg-pallete-yellow-600 focus:outline-none focus:ring-2 focus:ring-pallete-yellow focus:ring-opacity-50 pt-3 pb-3 pl-5 pr-5"
-            onClick={()=>setIsOpenPreview(true)}
+            onClick={() => setIsOpenPreview(true)}
           >
             Preview
           </button>
@@ -131,17 +131,9 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
         setOpenTextEditor={setOpenTextEditor}
         setCurrentIndex={setCurrentIndex}
         setValue={setValue}
-        currentIndex = {currentIndex}
+        currentIndex={currentIndex}
       />
 
-      {/* <div className={openTextEditor && 'hidden'}>
-        <BodyTextEditor
-          id="textEditor"
-          setEquipos={setEquipos}
-          equipos={equipos}
-          currentIndex={currentIndex}
-        />
-      </div> */}
       {openTextEditor && (
         <BodyTextEditor
           openTextEditor="openTextEditor"
@@ -153,8 +145,6 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
           setValue={setValue}
         />
       )}
-
-      {/* <button onClick={() => setOpenTextEditor(false)}>Agregar Texto</button> */}
     </div>
   );
 };
