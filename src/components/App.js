@@ -10,6 +10,8 @@ import DetailReportState from './hooks/DetailReportState';
 import logo from '../img/draegerLogo.png';
 
 function App() {
+
+  const [firma,setFirma] = useState('')
   const [equipos, setEquipos] = useState([]);
   const [
     reporte,
@@ -22,7 +24,7 @@ function App() {
     setCertificadoPrueba,
     setPersonaContacto,
   ] = DetailReportState();
-  const [isOpenPreview, setIsOpenPreview] = useState(true);
+  const [isOpenPreview, setIsOpenPreview] = useState(false);
 
   useEffect(() => {
     console.log(equipos, 'App Component');
@@ -62,6 +64,7 @@ function App() {
               setEquipos={setEquipos}
               equipos={equipos}
               setIsOpenPreview={setIsOpenPreview}
+              setFirma = {setFirma}
             />
           </div>
 
@@ -75,6 +78,7 @@ function App() {
               equipos={equipos}
               reporteDetail={reporte}
               setIsOpenPreview={setIsOpenPreview}
+              firma = {firma}
             />
           </div>
         </div>

@@ -6,7 +6,7 @@ import Device from './Device';
 import { DescriptionItem } from './DescriptionItem';
 import ReactHtmlParser from 'react-html-parser';
 
-const Pdf = ({ equipos, reporteDetail }) => {
+const Pdf = ({ equipos, reporteDetail , firma}) => {
   const returnTitleDevice = (equipo) => {
     console.log('returnTitleDevice');
     const titleDevice = `<p><strong class="titleDevice">${equipo.nequipo}</strong></p>
@@ -111,7 +111,7 @@ const Pdf = ({ equipos, reporteDetail }) => {
           <div className="lineSign">
             <img
               className="firmaPicture"
-              src="./firmaReyner.png"
+              src={firma}
               alt=""
               width="190px"
             />
@@ -130,12 +130,12 @@ const Pdf = ({ equipos, reporteDetail }) => {
           <div className="signatureIngenieroName">Fecha Firma del Cliente</div>
 
           <div className="lineSign">
-            <img
+            {/* <img
               className="firmaPicture"
-              src="./firmaReyner.png"
+              
               alt=""
               width="190px"
-            />
+            /> */}
             <div className="linea"></div>
           </div>
 

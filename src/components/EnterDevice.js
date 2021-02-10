@@ -4,7 +4,7 @@ import ListDevices from './ListDevices';
 import RichTextEditor from 'react-rte';
 import html2pdf from 'html2pdf.js';
 // recordar que el elemento se renderiza al cambiar el estado
-const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
+const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview , setFirma}) => {
   const [numeroParte, setNumeroParte] = useState('');
 
   const [numeroSerie, setNumeroSerie] = useState('');
@@ -22,12 +22,10 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
     //     let text = document.querySelector('.firstContent').innerText;
     // console.log(text.length);
     var opt = {
-      margin: [5, 5, 5, 5],
+      // margin: [5, 5, 5, 5],
       filename: 'myfile.pdf',
       html2canvas: { scale: 4 },
-      pagebreak: {
-        mode: 'avoid-all',
-      },
+ 
       jsPDF: {
         unit: 'px',
         format: 'a4',
@@ -58,6 +56,17 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
       alert('No puede quedar en blanco');
     }
   };
+
+
+  const uploadFile = (e) =>{
+
+    const firmaFile = e.target.files[0]
+
+   
+
+    setFirma(URL.createObjectURL(firmaFile))
+
+  }
   return (
     <div className="flex items-start">
       <div className="flex flex-col mr-5 shadow-lg p-5">
@@ -122,7 +131,12 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview }) => {
           >
             Cargar Firma
           </button>
+
+
         </div>
+
+        
+        <input type='file' name='uploadImage' id='uploadImageEnterDevice' onChange={uploadFile}/>
       </div>
 
       <ListDevices
