@@ -7,14 +7,14 @@ const ListDevices = ({
   setOpenTextEditor,
   setCurrentIndex,
   setValue,
-  currentIndex
+  currentIndex,
 }) => {
   useEffect(() => {
     console.log(equipos, 'ListDevices');
   });
 
   return (
-    <div className="mr-5">
+    <div className="mr-5 flex-grow">
       {!equipos.length ? (
         <h1 className="p-5">Lista de equipos vacios </h1>
       ) : (
@@ -28,7 +28,7 @@ const ListDevices = ({
             setOpenTextEditor={setOpenTextEditor}
             setCurrentIndex={setCurrentIndex}
             setValue={setValue}
-            currentIndex = {currentIndex}
+            currentIndex={currentIndex}
           />
         ))
       )}

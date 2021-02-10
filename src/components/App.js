@@ -10,8 +10,7 @@ import DetailReportState from './hooks/DetailReportState';
 import logo from '../img/draegerLogo.png';
 
 function App() {
-
-  const [firma,setFirma] = useState('')
+  const [firma, setFirma] = useState('');
   const [equipos, setEquipos] = useState([]);
   const [
     reporte,
@@ -47,7 +46,7 @@ function App() {
       shadow-draeger
       "
       >
-        <div className="infoReport flex m-5 ">
+        <div className="infoReport flex m-5 w-full ">
           <ReportDetail
             setNumeroReporte={setNumeroReporte}
             setRucCliente={setRucCliente}
@@ -59,12 +58,12 @@ function App() {
             setPersonaContacto={setPersonaContacto}
           />
 
-          <div className="enterDeviceBox flex p-8">
+          <div className="enterDeviceBox flex-grow p-8">
             <EnterDevice
               setEquipos={setEquipos}
               equipos={equipos}
               setIsOpenPreview={setIsOpenPreview}
-              setFirma = {setFirma}
+              setFirma={setFirma}
             />
           </div>
 
@@ -78,7 +77,7 @@ function App() {
               equipos={equipos}
               reporteDetail={reporte}
               setIsOpenPreview={setIsOpenPreview}
-              firma = {firma}
+              firma={firma}
             />
           </div>
         </div>
