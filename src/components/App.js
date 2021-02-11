@@ -58,7 +58,7 @@ function App() {
             setPersonaContacto={setPersonaContacto}
           />
 
-          <div className="enterDeviceBox flex-grow p-8">
+          <div className="enterDeviceBox flex-grow ml-8">
             <EnterDevice
               setEquipos={setEquipos}
               equipos={equipos}

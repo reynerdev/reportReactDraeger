@@ -11,25 +11,22 @@ const Device = ({
   setOpenTextEditor,
   setCurrentIndex,
   setValue,
-  currentIndex
+  currentIndex,
 }) => {
   useEffect(() => {
     console.log(equipo, 'Device', index);
   });
 
   const del = (e) => {
-
     e.stopPropagation();
     setOpenTextEditor(false);
     const eq = equipos;
     eq.splice(index, 1);
     setEquipos([...eq]);
-
-    
   };
 
   const openTextEditor = () => {
-    console.log('OpenTextEditor Clicked')
+    console.log('OpenTextEditor Clicked');
     setValue(
       RichTextEditor.createValueFromString(equipos[index].textArea, 'html')
     );
@@ -44,7 +41,7 @@ const Device = ({
 
   return (
     <div
-      className="border-2 cursor-pointer shadow-lg flex mb-5 animate__animated animate__slideInUp"
+      className="border-2 cursor-pointer shadow-lg flex mb-5 w-18 animate__animated animate__slideInUp"
       onClick={openTextEditor}
     >
       <div className="flex p-5 h-14">

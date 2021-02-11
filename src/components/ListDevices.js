@@ -14,7 +14,7 @@ const ListDevices = ({
   });
 
   return (
-    <div className="mr-5 flex-grow">
+    <div className="mr-5 w-18">
       {!equipos.length ? (
         <h1 className="p-5">Lista de equipos vacios </h1>
       ) : (
