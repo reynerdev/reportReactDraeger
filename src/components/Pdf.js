@@ -6,7 +6,7 @@ import Device from './Device';
 import { DescriptionItem } from './DescriptionItem';
 import ReactHtmlParser from 'react-html-parser';
 
-const Pdf = ({ equipos, reporteDetail , firma}) => {
+const Pdf = ({ equipos, reporteDetail, firma }) => {
   const returnTitleDevice = (equipo) => {
     console.log('returnTitleDevice');
     const titleDevice = `<p><strong class="titleDevice">${equipo.nequipo}</strong></p>
@@ -84,21 +84,19 @@ const Pdf = ({ equipos, reporteDetail , firma}) => {
         <div className="column descriptionColumn">
           <div className="columnTitle">Descripcion</div>
 
-          <div className="items">
-            {equipos.map((equipo, index) => {
-              return (
-                <>
-                  <div className="itemsNumber">{index + 1}</div>
+          {/* <div className="items"> */}
+          {equipos.map((equipo, index) => {
+            return (
+              <div className="items">
+                <div className="itemsNumber">{index + 1}</div>
 
-                  <div className="content firstContent ">
-                    {ReactHtmlParser(
-                      returnTitleDevice(equipo) + equipo.textArea
-                    )}
-                  </div>
-                </>
-              );
-            })}
-          </div>
+                <div className="content firstContent ">
+                  {ReactHtmlParser(returnTitleDevice(equipo) + equipo.textArea)}
+                </div>
+              </div>
+            );
+          })}
+          {/* </div> */}
         </div>
       </div>
 
@@ -109,12 +107,7 @@ const Pdf = ({ equipos, reporteDetail , firma}) => {
           </div>
 
           <div className="lineSign">
-            <img
-              className="firmaPicture"
-              src={firma}
-              alt=""
-              width="190px"
-            />
+            <img className="firmaPicture" src={firma} alt="" width="190px" />
             <div className="linea"></div>
           </div>
 

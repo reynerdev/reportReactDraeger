@@ -22,10 +22,14 @@ const EnterDevice = ({ setEquipos, equipos, setIsOpenPreview, setFirma }) => {
     //     let text = document.querySelector('.firstContent').innerText;
     // console.log(text.length);
     var opt = {
-      // margin: [5, 5, 5, 5],
+      margin: [0, 0, 0, 0],
       filename: 'myfile.pdf',
       html2canvas: { scale: 4 },
-      pagebreak: { mode: 'avoid-all', avoid: '#element-to-print' },
+      pagebreak: {
+        mode: 'css',
+        inside: '.mainContent',
+        avoid: ['.items', '.signaturePart'],
+      },
       jsPDF: {
         unit: 'px',
         format: 'a4',
